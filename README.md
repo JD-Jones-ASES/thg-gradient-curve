@@ -15,12 +15,12 @@ precise verification scope and source evidence.
 
 ## The exact final-gradient curve
 
-Let $`E`$ be a real Hilbert space, $`N\ge0`$, $`L>0`$, and $`h\ge0`$.
+Let $`E`$ be a real Hilbert space, $`N\ge0`$, $`L\gt 0`$, and $`h\ge0`$.
 Let $`f:E\to\mathbb R`$ be convex and differentiable, with an
 $`L`$-Lipschitz gradient and a minimizer $`x_*`$. For the actual iteration
 
 ```math
-x_{i+1}=x_i-\frac hL\nabla f(x_i),\qquad 0\le i<N,
+x_{i+1}=x_i-\frac hL\nabla f(x_i),\qquad 0\le i\lt N,
 ```
 
 the sharp factor is
@@ -33,7 +33,7 @@ the sharp factor is
 
 This uses the **final gradient** and an **initial-distance bound**.
 There is no finite-horizon or dimension cutoff. The zero-step and zero-horizon
-cases are included. For $`h>2`$, the second branch describes possible growth.
+cases are included. For $`h\gt 2`$, the second branch describes possible growth.
 One-dimensional Huber and quadratic functions attain the two branches;
 their lifts give sharpness in every nonzero real Hilbert space.
 
@@ -70,7 +70,7 @@ Quantitative stability is included as a written supplement.
 ## Relaxed proximal minimization
 
 Let $`C\subseteq E`$ be convex, let $`F`$ be convex on $`C`$, and let
-$`x_*\in C`$ minimize $`F`$. Given $`\lambda>0`$, suppose each $`z_i`$
+$`x_*\in C`$ minimize $`F`$. Given $`\lambda\gt 0`$, suppose each $`z_i`$
 actually minimizes
 
 ```math
@@ -130,5 +130,4 @@ Mathlib mathematics. [VERIFICATION.md](VERIFICATION.md) lists the compiled
 declarations and their verification evidence. Comparator and independent
 kernel replay run on Linux.
 
-[formalization.yaml](formalization.yaml) records the mathematical scope,
-source relationships.
+[formalization.yaml](formalization.yaml) records the mathematical scope and source relationships.

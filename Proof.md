@@ -21,7 +21,7 @@ differentiable and convex with
 `L`-Lipschitz gradient, let `x*` be any minimizer, and let
 
 ```math
-x_{i+1}=x_i-\frac hL\nabla f(x_i),\qquad 0\le i<N.
+x_{i+1}=x_i-\frac hL\nabla f(x_i),\qquad 0\le i\lt N.
 ```
 For every integer `N>=0` and every `0<h<=2`,
 
@@ -186,7 +186,7 @@ Expansion of (2) gives
 
 ```math
 c_i=-\sum_{j\ne i}(\lambda_{ij}+\lambda_{ji})
-       +2h\sum_{j>i}\lambda_{ji}.
+       +2h\sum_{j\gt i}\lambda_{ji}.
 ```
 Consequently, for `0<=i<N`,
 
@@ -215,8 +215,8 @@ identity
 **(15)**
 
 ```math
-W=2\sum_{i<N}d_i(E_i-E_N)
- +(1-r^2)\sum_{i<N}\|g_i\|^2-(t^2-1)\|g_N\|^2,
+W=2\sum_{i\lt N}d_i(E_i-E_N)
+ +(1-r^2)\sum_{i\lt N}\|g_i\|^2-(t^2-1)\|g_N\|^2,
 \qquad E_i=f_i-\frac12\|g_i\|^2.
 ```
 ### 3.4 Completion against the minimizer
@@ -228,8 +228,8 @@ The resulting exact completion is
 ```math
 \boxed{\begin{aligned}
 \|x_0\|^2-t^2\|g_N\|^2={}&W
- +h\sum_{i<N}Q_{*i}+Q_{*N}
- +\sum_{i<N}(h-d_i)Q_{i*}\\
+ +h\sum_{i\lt N}Q_{*i}+Q_{*N}
+ +\sum_{i\lt N}(h-d_i)Q_{i*}\\
  &+(1+S)Q_{N*}+\|x_N-g_N\|^2.
 \end{aligned}}
 ```
@@ -289,7 +289,7 @@ positive weights `j`. In particular, for `1<=k<N`,
 **(19)**
 
 ```math
-\delta>(1-r)M_k.
+\delta\gt (1-r)M_k.
 ```
 ### 4.2 Auxiliary quadratic roots
 
@@ -360,7 +360,7 @@ Define
 **(27)**
 
 ```math
-q_k=\frac{1+u_{k-1}}{u_k},\qquad A_k=q_kA_{k-1}\quad(1\le k<N),
+q_k=\frac{1+u_{k-1}}{u_k},\qquad A_k=q_kA_{k-1}\quad(1\le k\lt N),
 \quad A_0=1,
 ```
 and then define the `D` factors by (8). By induction on (27),
@@ -368,7 +368,7 @@ and then define the `D` factors by (8). By induction on (27),
 **(28)**
 
 ```math
-\frac{\sum_{i<k}A_i}{A_k}=u_k.
+\frac{\sum_{i\lt k}A_i}{A_k}=u_k.
 ```
 Equations (21) and (26) imply
 
@@ -401,7 +401,7 @@ We prove the stronger inequality
 **(31)**
 
 ```math
-q_k>\frac{p_{k+1}}{p_k}>1\qquad(1\le k<N).
+q_k\gt \frac{p_{k+1}}{p_k}\gt 1\qquad(1\le k\lt N).
 ```
 This makes `A_k>A_{k-1}` and `D_{k+1}<D_k`, as required in (9).
 
@@ -415,7 +415,7 @@ and gives
 ```math
 P_{j,c}(j/2)
 =\frac{j^2}{4}+\frac{jr}{h}
- +\frac{(1-r)\sum_{\ell=1}^{j}p_\ell}{h p_{j+1}}>0.
+ +\frac{(1-r)\sum_{\ell=1}^{j}p_\ell}{h p_{j+1}}\gt 0.
 ```
 The polynomial is strictly increasing for `z>=0`, so
 `0<u_j(c)<j/2`. If `delta<=c_1<=c_2<=h`, then
@@ -447,7 +447,7 @@ P_{k,c}(B(c))=B(c)\mathcal M(c),
 The coefficient of `c` in `w_k(c)-w_{k-1}(c)` is
 
 ```math
-\frac1h\left(\frac{k+1}{p_{k+1}}-\frac{k}{p_k}\right)<0
+\frac1h\left(\frac{k+1}{p_{k+1}}-\frac{k}{p_k}\right)\lt 0
 ```
 by the strict increase of `p_j/j`. Together with Section 5.1, this
 shows that `mathcal M(c)` is nonincreasing. Thus it suffices to prove
@@ -466,7 +466,7 @@ Its numerator is positive for `0<k<N`. In fact, the strictly increasing
 increments of the geometric sequence `r^{-j}` imply
 
 ```math
-\frac{r^{-k}-1}{k}<\frac{r^{-N}-1}{N}\le h.
+\frac{r^{-k}-1}{k}\lt \frac{r^{-N}-1}{N}\le h.
 ```
 Consequently (34) is indeed the nonnegative root; at `k=0` it is zero.
 One way to check the substitution without expanding (34) is to put
@@ -496,14 +496,14 @@ For `z=r^{-k}>1` and `A=1+kh`, the assertion
 `q_k(h)>p_{k+1}/p_k` is equivalent to
 
 ```math
-(A+z)(z-1)>(A-z)(z/r-1).
+(A+z)(z-1)\gt (A-z)(z/r-1).
 ```
 All denominators cleared here are positive. The difference is exactly
 
 **(36)**
 
 ```math
-\frac{hz}{r}\bigl(z-1-k(1-r)\bigr)>0.
+\frac{hz}{r}\bigl(z-1-k(1-r)\bigr)\gt 0.
 ```
 For the last sign, Bernoulli's inequality gives
 `r^{-k}>=(1+(1-r)/r)^k>=1+k(1-r)/r>1+k(1-r)`.
@@ -522,7 +522,7 @@ is nonnegative. Therefore
 **(37)**
 
 ```math
-\|g_N\|\le r^N\|x_0\|\qquad(H\le h<2).
+\|g_N\|\le r^N\|x_0\|\qquad(H\le h\lt 2).
 ```
 The construction includes `N=1`. There are then no ratios `q_k` to
 define or test: `A_0=1`, `D_1=p_1`, and `D_2=0`.
@@ -549,7 +549,7 @@ Hence (16) becomes the exact stronger identity
 \boxed{\begin{aligned}
 \|x_0\|^2={}&\|x_N\|^2+2NH f_N
        +NH(NH+1)\|g_N\|^2\\
-&+W+H\sum_{i<N}Q_{*i}.
+&+W+H\sum_{i\lt N}Q_{*i}.
 \end{aligned}}
 ```
 Its remainder is nonnegative, and every multiplier in it has been
@@ -579,7 +579,7 @@ Substitution in (38), followed by nonnegativity of `W^F` and (5), gives
 \begin{aligned}
 \|x_0\|^2
 &\ge\|x_N\|^2+2Nh f_N+Nh(Nh+s)\|g_N\|^2
-       +h(1-s)\sum_{i<N}\|g_i\|^2\\
+       +h(1-s)\sum_{i\lt N}\|g_i\|^2\\
 &\ge\|x_N\|^2+2Nh f_N+Nh(Nh+1)\|g_N\|^2\\
 &\ge(1+Nh)^2\|g_N\|^2.
 \end{aligned}
@@ -590,7 +590,7 @@ on the dimension or parity of `N`.
 
 ## Sharpness
 
-For the normalized problem choose $`R>0`$ and put $`\tau=R/(1+Nh)`$.
+For the normalized problem choose $`R\gt 0`$ and put $`\tau=R/(1+Nh)`$.
 The one-dimensional convex, differentiable, 1-smooth Huber function is
 
 ```math
@@ -687,9 +687,9 @@ deficit identity is
 \begin{aligned}
 R^2-T^2\|g_N\|^2={}&
 s\sum_{i\ne j}\lambda^H_{ij}Q_{ij}
-+h\sum_{i<N}Q_{*i}\\
++h\sum_{i\lt N}Q_{*i}\\
 &+s(1-s)\sum_{i\ne j}\lambda^H_{ij}\|g_i-g_j\|^2\\
-&+h(1-s)\sum_{i<N}(\|g_i\|^2-\|g_N\|^2)\\
+&+h(1-s)\sum_{i\lt N}(\|g_i\|^2-\|g_N\|^2)\\
 &+Q_{*N}+TQ_{N*}+\|x_N-g_N\|^2.
 \end{aligned}
 ```
@@ -761,7 +761,7 @@ First take `j=N`, then subtract the relation for a general `j`, to find
 `z_i` orthogonal to `S`. Define
 
 ```math
-c_i=z_i-z_{i+1}=r_Ng_i+g_{i+1}\qquad(0\leq i<N).
+c_i=z_i-z_{i+1}=r_Ng_i+g_{i+1}\qquad(0\leq i\lt N).
 ```
 Each `c_i` is orthogonal to `S`; each `c_i-c_j` belongs to `S`.
 Consequently `||c_i-c_j||^2=0`, so all `c_i` equal a vector `c`.
@@ -836,7 +836,7 @@ they do not claim global closeness of the objective to an extremal function.
 For `H_N<h<2`, put
 
 ```math
-r=h-1,\quad t=r^{-N},\quad \beta=h-\delta>0,\quad
+r=h-1,\quad t=r^{-N},\quad \beta=h-\delta\gt 0,\quad
 \mathcal D=R^2-t^2\|g_N\|^2,\quad
 E_i=f_i-\tfrac12\|g_i\|^2\geq0.
 ```
@@ -846,7 +846,7 @@ The exact upper certificate gives
 
 ```math
 \|x_N-g_N\|^2\leq\mathcal D,\qquad
-2\beta E_i\leq\mathcal D\quad(i<N),\qquad
+2\beta E_i\leq\mathcal D\quad(i\lt N),\qquad
 \lambda_{ij}Q_{ij}\leq\mathcal D.
 ```
 Define the deviation from quadratic oscillation by
@@ -890,12 +890,12 @@ For `0<h<H_N`, set `s=h/H_N`, `T=1+Nh`, and
 
 ```math
 \|x_N-g_N\|^2\leq D_-,\qquad
-\|g_i-g_N\|^2\leq D_-/\kappa_i\quad(i<N),
+\|g_i-g_N\|^2\leq D_-/\kappa_i\quad(i\lt N),
 ```
 **(E12)**
 
 ```math
-\kappa_i=s(1-s)(\lambda^H_{iN}+\lambda^H_{Ni})>0.
+\kappa_i=s(1-s)(\lambda^H_{iN}+\lambda^H_{Ni})\gt 0.
 ```
 In particular, the whole point trajectory stays close to the constant
 gradient extremal path with terminal gradient `g_N`:
@@ -919,12 +919,12 @@ and `r=h-1`, remains an admissible trajectory. Its two branch deficits are
 
 ```math
 R^2-r^{-2N}\|g_N\|^2=((1+Nh)^2-r^{-2N})\|b\|^2
-\quad(h>H_N),
+\quad(h\gt H_N),
 ```
 ```math
 R^2-(1+Nh)^2\|g_N\|^2
 =(1-(1+Nh)^2r^{2N})\|a\|^2
-\quad(1<h<H_N).
+\quad(1\lt h\lt H_N).
 ```
 Each tends to zero at balance while the component incompatible with its
 strict-branch equality class can stay nonzero. Consequently a modulus of
@@ -957,7 +957,7 @@ these three gradient samples satisfy all the interpolation inequalities: regardl
 values, direct calculation gives
 
 ```math
-Q_{01}+Q_{12}+Q_{20}=-1/4<0.
+Q_{01}+Q_{12}+Q_{20}=-1/4\lt 0.
 ```
 Equivalently, `I-G` is the resolvent `(I+A)^(-1)` of the skew matrix
 `A=[[0,-1],[1,0]]`, a maximal monotone operator. To see maximality without
