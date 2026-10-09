@@ -11,6 +11,7 @@ Only the ten independent statement placeholders are intentional. -/
 noncomputable section
 open scoped InnerProductSpace
 namespace THGGradient
+section Gradient
 variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E] [CompleteSpace E]
 
 /-- The full sharp final-gradient bound, for every horizon and nonnegative step. -/
@@ -98,6 +99,11 @@ theorem balance_equality (N : ℕ) (hN : 0 < N) {h : ℝ} (hh : 0 < h)
           ((1 - h) ^ i) ^ 2 / 2 * ‖a‖ ^ 2 := by
   sorry
 
+end Gradient
+
+section Proximal
+variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
+
 /-- Exact residual rate for a trajectory of actual proximal minimizers. -/
 theorem proximal_residual_bound (N : ℕ) {h lam : ℝ} (hh : 0 ≤ h) (hlam : 0 < lam)
     (C : Set E) (F : E → ℝ) (hF : ConvexOn ℝ C F)
@@ -150,4 +156,5 @@ theorem proximal_objective_attainment (N : ℕ) {h lam R : ℝ}
       F (z N) - F 0 = R ^ 2 / (4 * lam * (1 + (N : ℝ) * h)) := by
   sorry
 
+end Proximal
 end THGGradient
