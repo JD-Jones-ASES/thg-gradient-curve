@@ -130,4 +130,6 @@ Mathlib mathematics. [VERIFICATION.md](VERIFICATION.md) lists the compiled
 declarations and their verification evidence. Comparator and independent
 kernel replay run on Linux.
 
-[formalization.yaml](formalization.yaml) records the mathematical scope and source relationships.
+[formalization.yaml](formalization.yaml) records the mathematical scope, source
+relationships, automation and review status. [Disclosure.md](Disclosure.md)
+describes AI assistance and human responsibility.

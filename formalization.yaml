@@ -37,6 +37,24 @@ sources:
       Conjecture 3, smooth-convex specialization, final gradient under an
       initial-distance bound. The Huber and quadratic sharp examples are
       credited to this source. Positive strong convexity is outside this result.
+automation:
+  methods:
+    - method: agent
+      models: [OpenAI GPT-6 Astra]
+      framework: OpenAI Codex
+      notes: >-
+        AI agents contributed mathematical arguments and extensions, Lean
+        proofs, documentation and verification tooling. Disclosure.md records
+        these contributions. Proof terms are kernel-checked; no external
+        numerical oracle or custom axiom is a proof input.
+review:
+  status: agent-reviewed
+  reviewers: [OpenAI GPT-6 Astra agents]
+  notes: >-
+    Separate collaborating agents checked the analytic transfers, uniform
+    factor construction, equality and proximal arguments, and alignment of
+    formal statements with their exposition. No independent human specialist
+    review is claimed. See Disclosure.md and VERIFICATION.md.
 fidelity:
   notes: >-
     The principal statements require actual convexity, gradients, Lipschitz
