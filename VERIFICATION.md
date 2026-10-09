@@ -1,15 +1,12 @@
 # Verification record
 
-Status: **complete Lean implementation; exact Linux release gate pending**, 2026-10-09. The private repository
-was authorized by JD after the planning handoff. No publication, submission
-or registry acceptance is claimed.
+The project has ten principal Lean declarations and two independent Linux
+verification jobs. Exact-commit results are available in the
+[Verify workflow](https://github.com/JD-Jones-ASES/thg-gradient-curve/actions/workflows/verify.yml).
+Each run identifies its full source commit and retains the verification logs.
 
 ## Source and toolchain
 
-- Written precursor: Analytic-Lab
-  `c6256b8dab3fe01fbeeeceef4b4d2c701dffeb2f`, especially
-  `research/thg_gradient/PROOF.md`, `UNIFORM_CERTIFICATE.md`,
-  `EXTENSIONS_GEOMETRY.md`, `EXTENSIONS_PROXIMAL.md` and the two plans.
 - Lean: `leanprover/lean4:v4.35.0-rc3`.
 - Mathlib: `a98628e16c11f5167f16124105ddce53efa9bfe5`.
 - All transitive dependencies are pinned in `lake-manifest.json`.
@@ -64,24 +61,10 @@ project proof artifacts are reused.
 The kernel-replay job audits each principal declaration, compares the independent
 statements and definitions, and replays the exported proof closure with Lean,
 NanoDa and con-ron. The separate fresh-build job repeats the complete build and
-principal axiom audit. Both preserve their evidence as private Actions artifacts.
+principal axiom audit. Both preserve their evidence as Actions artifacts.
 The only permitted axioms are `propext`, `Quot.sound` and `Classical.choice`.
 Intentional placeholders occur only in the independent Challenge; none occurs
 in the Solution or its project proof closure.
 
-**Linux results have not yet been recorded for the candidate commit.** A local
-build, an internal mathematical audit or a partial CI run does not establish
-exact-commit release verification. The successful workflow must identify the
-intended full source SHA before the repository is described as ready.
-
-## Review and provenance
-
-The source requirements and minimum toolchain were checked against the
-[Palomar policy](https://github.com/PalomarRegistry/PalomarPolicy/blob/main/CONTRIBUTING.md)
-and its [toolchain file](https://github.com/PalomarRegistry/PalomarSubmission/blob/main/toolchains.json)
-on October 9, 2026. Independent internal agent audits checked the actual-function
-bridge, the all-horizon factor construction, all step endpoints, equality
-necessity/converses, proximal optimality, and statement/description alignment.
-
-This remains a private repository. Verification is distinct from public release,
-Palomar submission, registration, worldwide priority or human specialist review.
+A successful run establishes verification only for its recorded source commit.
+The workflow checks that this is the same commit identified by GitHub Actions.

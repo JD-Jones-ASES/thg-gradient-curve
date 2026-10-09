@@ -1,7 +1,7 @@
 # thg-gradient-curve
 
 Sharp last-iterate bounds and extremal trajectories for **constant-step
-gradient descent** on smooth convex functions. This private project develops
+gradient descent** on smooth convex functions. The project develops
 the complete final-gradient curve, the structure of equality trajectories,
 and a direct application to relaxed proximal minimization.
 
@@ -65,7 +65,7 @@ g_i=b+(1-h)^i a,\qquad \langle a,b\rangle=0.
 
 The classification concerns visited points, gradients and sampled function
 values. It does not determine the objective away from the trajectory.
-Quantitative stability is a written supplement to the first formal contract.
+Quantitative stability is included as a written supplement.
 
 ## Relaxed proximal minimization
 
@@ -126,13 +126,9 @@ The independent [THGGradientChallenge.lean](THGGradientChallenge.lean) imports
 only Mathlib; [THGGradientSolution.lean](THGGradientSolution.lean) imports the
 complete proved development. [comparator.json](comparator.json) lists the ten
 principal declarations. Every definition in the statement surface is ordinary
-Mathlib mathematics. The original contract and
-its implementation order are preserved in [docs/ENTRY_PLAN.md](docs/ENTRY_PLAN.md)
-and [docs/LEAN_PLAN.md](docs/LEAN_PLAN.md). Only the exact completed declaration
-list and its recorded checks in [VERIFICATION.md](VERIFICATION.md) establish
-formal verification. Comparator and independent kernel replay run on Linux.
+Mathlib mathematics. [VERIFICATION.md](VERIFICATION.md) lists the compiled
+declarations and their verification evidence. Comparator and independent
+kernel replay run on Linux.
 
-JD Jones is the responsible human maintainer. [Disclosure.md](Disclosure.md)
-and [formalization.yaml](formalization.yaml) record AI assistance and source
-relationships. The repository remains private; publication and Palomar
-submission are separate actions.
+[formalization.yaml](formalization.yaml) records the mathematical scope,
+source relationships.

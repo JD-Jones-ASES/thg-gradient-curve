@@ -1,9 +1,8 @@
 # Sources and mathematical scope
 
-This account preserves the primary-source comparison performed in Analytic-Lab
-on **2026-10-09**. It is a bounded literature audit, not a priority determination
-or an independent specialist review. The written precursor is pinned at
-[`c6256b8dab3fe01fbeeeceef4b4d2c701dffeb2f`](https://github.com/JD-Jones-ASES/Analytic-Lab/tree/c6256b8dab3fe01fbeeeceef4b4d2c701dffeb2f/research/thg_gradient).
+The following sources establish the mathematical context and attribution.
+The result concerns the complete smooth-convex final-gradient curve and its
+equality and proximal consequences.
 
 ## The original question
 
@@ -31,10 +30,9 @@ Salah R. Chikhi,
 [*Last-Iterate Performance of Gradient Descent and Relaxed Proximal Point via
 s-Composability*, v1](https://arxiv.org/html/2609.13765v1), September 12, 2026,
 Section 4, supplies the factorized multiplier shape and the all-horizon
-balancing-step result. Those mathematical ingredients motivated this work.
-The precursor also checked [v2](https://arxiv.org/html/2609.13765v2), dated
-September 20, 2026: its abstract and Section 1.1 still leave the complete
-constant-step final-gradient curve open.
+balancing-step result. The [second version](https://arxiv.org/html/2609.13765v2), dated
+September 20, 2026, also leaves the complete constant-step final-gradient curve
+open in its abstract and Section 1.1.
 
 The contribution developed here is the choice of factors with **uniform
 divergence** across all nonterminal iterates, the quadratic-root comparison
@@ -43,13 +41,13 @@ scaling argument that retains the interpolation surplus to recover every
 smaller step. [Proof.md](Proof.md) reconstructs every required coefficient
 identity and sign. Chikhi's theorem is not an unproved premise of the Lean
 development, but his published factorization remains a material source.
-The appropriate provenance is a source-based adaptation.
+This development adapts that published factorization.
 
 ## Nearby rate and proximal results
 
 | Primary source | Checked relationship |
 |---|---|
-| Jungbin Kim, [*A Proof of the Exact Convergence Rate of Gradient Descent*, arXiv:2412.04427v2](https://arxiv.org/html/2412.04427v2), March 26, 2025 | Theorem 1.3 bounds final objective gap by initial squared distance; Theorem 1.5 bounds final squared gradient by initial objective gap. Composition gives the even-horizon target. Those published results explain a separate precursor argument, but are not imported as assumptions in this self-contained certificate. |
+| Jungbin Kim, [*A Proof of the Exact Convergence Rate of Gradient Descent*, arXiv:2412.04427v2](https://arxiv.org/html/2412.04427v2), March 26, 2025 | Theorem 1.3 bounds final objective gap by initial squared distance; Theorem 1.5 bounds final squared gradient by initial objective gap. Composition gives the even-horizon target. These are distinct published rate statements; this proof does not use them as assumptions. |
 | Wang, Ma, Yang and Zhou, [*Relaxed Proximal Point Algorithm: Tight Complexity Bounds and Acceleration without Momentum*, arXiv:2410.08890v1](https://arxiv.org/html/2410.08890v1), Theorem 3.1 and Remark 3.1; [published abstract](https://pubsonline.informs.org/doi/abs/10.1287/ijoo.2025.0075) | The checked baseline covers constant relaxation through the square root of two. Chikhi supplies a balanced-step proximal result. The direct application here treats every nonnegative relaxation, the exact last residual, and the progress-branch objective–residual tradeoff. |
 
 The proximal proof starts from literal minimization of the quadratic-regularized
@@ -58,7 +56,7 @@ not supplied as an unexplained algorithm assumption. General cocoercive
 operators do not satisfy all the function-interpolation information used by
 the proof. No corresponding sharp rate is claimed for every such operator.
 
-## Equality, scope and review
+## Equality and scope
 
 The structural extension classifies all equality trajectories and sampled
 function values. At balance it allows an orthogonal mixture of progress and
@@ -70,10 +68,5 @@ product; a changing preconditioner is outside scope.
 Strict-branch quantitative stability is retained as supplementary written
 mathematics. Proximal trajectories include their terminal minimizer; existence
 of a total proximal operator for every extended-real objective is outside the
-first formal contract. [VERIFICATION.md](VERIFICATION.md) distinguishes the
+compared contract. [VERIFICATION.md](VERIFICATION.md) distinguishes the
 compiled contract from written extensions.
-
-The precursor's bounded searches found no earlier complete resolution of this
-precise curve. Absence from those searches does not establish worldwide
-priority. Internal agent audits, Lean verification, release preparation,
-Palomar submission, registration and human peer review are distinct statuses.

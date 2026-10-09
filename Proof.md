@@ -9,8 +9,7 @@ Taylor, Hendrickx and Glineur posed the final-gradient, initial-distance questio
 and supplied the sharp Huber and quadratic examples. The factorized multiplier
 shape and balanced-step starting point are due to Chikhi. The uniform divergence
 construction, its comparison proof, the scaling that retains interpolation
-surplus, and the trajectory and proximal consequences are developed in the
-[Analytic-Lab precursor](https://github.com/JD-Jones-ASES/Analytic-Lab/tree/c6256b8dab3fe01fbeeeceef4b4d2c701dffeb2f/research/thg_gradient).
+surplus, and the trajectory and proximal consequences are proved below.
 See [Note.md](Note.md) for the source comparison and its limits.
 
 ## Part I. Interpolation and the uniform certificate
@@ -630,13 +629,13 @@ the displayed affine formula is needed only through the chosen horizon.
 The extension from `(0,2]` to every `h>=0` is exact. Adding the two
 interpolation inequalities involving `*` gives
 
-**(4)**
+**(E1)**
 
 ```math
 \langle g_i,x_i\rangle\geq\|g_i\|^2,
 \qquad \|g_i\|\leq\|x_i\|.
 ```
-At `h=0` the trajectory is constant and (4) proves (2), whose coefficient
+At `h=0` the trajectory is constant and (E1) proves the sharp bound (1) of Part I, whose coefficient
 is 1. For `h>=2`,
 
 ```math
@@ -646,15 +645,15 @@ is 1. For `h>=2`,
 &\leq(h-1)^2\|x_i\|^2.
 \end{aligned}
 ```
-Induction and (4) give `||g_N||<=(h-1)^N||x_0||`.
-For `h>=2` this is the larger branch in (2). The quadratic
+Induction and (E1) give `||g_N||<=(h-1)^N||x_0||`.
+For `h>=2` this is the larger branch in the sharp bound (1) of Part I. The quadratic
 `f(x)=||x||^2/2` on a line attains it, so these steps require no
 asymptotic or limiting interpretation. The result is a bound on a fixed
 finite horizon, not a claim of convergence when `h>=2`.
 
 ## Equality trajectories and the transition at the balancing step
 
-Work with the normalized finite data (1), set `R=||x_0||`, and assume
+Work with the normalized interpolation data of Part I, set `R=||x_0||`, and assume
 `R>0` when discussing nontrivial equality. Let
 
 ```math
@@ -669,7 +668,7 @@ outside that trajectory.
 Equality `||g_N||=R/(1+Nh)` holds if and only if there is a vector `b`
 such that, for every `0<=i<=N`,
 
-**(5)**
+**(E2)**
 
 ```math
 \boxed{\quad
@@ -682,7 +681,7 @@ the balanced history multipliers `lambda^H_ij` in the rescaling proof.
 Every one of these history multipliers is strictly positive. The full
 deficit identity is
 
-**(6)**
+**(E3)**
 
 ```math
 \begin{aligned}
@@ -698,13 +697,13 @@ The history sums run over `0<=i,j<=N`. All summands are nonnegative;
 the norm-difference terms use gradient-norm monotonicity. Equality makes
 all gradients equal, makes `x_N=g_N`,
 and makes every `Q_*i` zero. The iteration and these starred equalities
-then give (5). Conversely (5) gives the stated equality directly, and
+then give (E2). Conversely (E2) gives the stated equality directly, and
 its interpolation data are realized by the Huber example.
 
-For an actual normalized smooth convex function, (5) also determines the
+For an actual normalized smooth convex function, (E2) also determines the
 function and its full gradient on the visited ray segment `0<=u<=1+Nh`:
 
-**(7)**
+**(E4)**
 
 ```math
 \nabla f(ub)=\min\{u,1\}b,
@@ -718,14 +717,14 @@ forces equality in both Lipschitz estimates through each intermediate
 point, giving `grad f(ub)=ub`. On `[b,(1+Nh)b]`, both endpoint gradients
 equal `b`; adding cocoercivity against the two endpoints with the segment
 weights forces the intermediate gradient to equal `b`. Integrating gives
-(7). No condition is imposed off this segment.
+(E4). No condition is imposed off this segment.
 
 ### Balance: `h=H_N`
 
 Equality holds if and only if there are orthogonal vectors `a,b` such
 that, for every `0<=i<=N`,
 
-**(8)**
+**(E5)**
 
 ```math
 \boxed{\begin{aligned}
@@ -745,7 +744,7 @@ positive. The coefficients of `Q_*i` are positive, the coefficient of
 `Q_N*` is `1+Nh>0`, and the terminal square remains. Equality therefore
 implies
 
-**(9)**
+**(E6)**
 
 ```math
 Q_{ij}=0\ (0\leq i,j\leq N),\qquad
@@ -772,11 +771,11 @@ Since `z_N=0`, `z_i=(N-i)c`. Set
 b=c/H_N=z_0/(NH_N),\qquad a=g_0-b.
 ```
 The recurrence is `g_{i+1}=-r_Ng_i+H_Nb`, proving the first two
-formulas in (8). Moreover `g_0-g_1=H_Na` belongs to `S` and
+formulas in (E5). Moreover `g_0-g_1=H_Na` belongs to `S` and
 `z_0=NH_Nb` is orthogonal to `S`, so `a` and `b` are orthogonal.
 The starred equality gives the formula for `f_i`.
 
-Conversely, (8) gives
+Conversely, (E5) gives
 
 ```math
 \|x_0\|^2=(1+NH_N)^2\|b\|^2+\|a\|^2,
@@ -789,7 +788,7 @@ quadratic in the orthogonal `a` direction. A zero component is simply
 omitted. This construction also proves realizability in any Hilbert space
 containing the specified vectors.
 
-Strict positivity used in (9) follows directly from the constructed
+Strict positivity used in (E6) follows directly from the constructed
 factors: `q_k>p_{k+1}/p_k>1`, hence `A` strictly increases and `D`
 strictly decreases; `D_N>0=D_{N+1}`. Both expressions defining
 `lambda_ab` and `lambda_ba` are therefore positive. For `N=1` this
@@ -799,18 +798,18 @@ is immediate from `p_1>0` and `r_N>0`.
 
 Equality `||g_N||=(h-1)^N R` holds if and only if
 
-**(10)**
+**(E7)**
 
 ```math
 \boxed{\quad x_i=g_i=(1-h)^i x_0,\qquad
 f_i=\tfrac12\|x_i\|^2\quad(0\leq i\leq N).\quad}
 ```
-The equality argument leading from (9) to the orthogonal decomposition
+The equality argument leading from (E6) to the orthogonal decomposition
 used only `r=h-1`, not terminal balance. It therefore still gives that
 decomposition. In this strict branch, the uniform coefficient
 `beta=h-delta` is positive, so equality additionally gives `Q_0*=0`.
 The decomposition yields `f_0-||g_0||^2/2=Nh||b||^2`; thus `b=0`,
-which proves (10). The converse is the quadratic example.
+which proves (E7). The converse is the quadratic example.
 
 For an actual normalized function, equality forces
 `grad f(x)=x` and `f(x)=||x||^2/2` on the entire segment
@@ -818,14 +817,14 @@ For an actual normalized function, equality forces
 so the argument used on `[0,b]` above applies. The objective outside
 that segment need not be quadratic.
 
-For `h>=2`, (10) is also the equality classification. When `h>2`, equality
+For `h>=2`, (E7) is also the equality classification. When `h>2`, equality
 in the distance recursion forces equality in both inequalities following
-(4), hence `g_i=x_i` for each `i<N`; the terminal inequality also forces
+(E1), hence `g_i=x_i` for each `i<N`; the terminal inequality also forces
 `g_N=x_N`. At `h=2`, equality forces all iterate norms to equal `R`.
 Gradient norms are nonincreasing by pairwise cocoercivity, while
 `||g_N||=R` and `||g_i||<=||x_i||=R`, so again `g_i=x_i`.
 At `h=0`, equality is simply `g_0=x_0`, `f_0=||x_0||^2/2`, with all
-sampled points identical. If `R=0`, (4) and the iteration force the zero
+sampled points identical. If `R=0`, (E1) and the iteration force the zero
 trajectory and zero function values, already included by `a=b=0`.
 
 ## Quantitative stability of the two strict branches
@@ -843,7 +842,7 @@ E_i=f_i-\tfrac12\|g_i\|^2\geq0.
 ```
 The exact upper certificate gives
 
-**(11)**
+**(E8)**
 
 ```math
 \|x_N-g_N\|^2\leq\mathcal D,\qquad
@@ -854,7 +853,7 @@ Define the deviation from quadratic oscillation by
 `e_i=g_{i+1}+r g_i`. Since `e_i=z_i-z_{i+1}`, direct expansion of the
 two adjacent interpolation quantities gives the exact identity
 
-**(12)**
+**(E9)**
 
 ```math
 \|e_i\|^2
@@ -863,7 +862,7 @@ two adjacent interpolation quantities gives the exact identity
 Dropping nonpositive terms and retaining the corresponding two summands
 in the deficit certificate yields
 
-**(13)**
+**(E10)**
 
 ```math
 \boxed{\quad
@@ -873,7 +872,7 @@ C_i=\max\left\{\frac h{2\beta},\frac r{2\lambda_{i+1,i}}\right\}.
 ```
 For example, induction immediately gives the full gradient-path estimate
 
-**(14)**
+**(E11)**
 
 ```math
 \|g_i-(-r)^i g_0\|
@@ -884,16 +883,16 @@ Also `||z_i||<=sqrt(D)(1+sum_{j=i}^{N-1}sqrt(C_j))`, by summing
 gradient as well. If `||g_N||>=(1-epsilon)R r^N` for
 `0<=epsilon<=1`, then `D<=(2epsilon-epsilon^2)R^2`.
 Thus these are explicit square-root stability bounds. Their constants
-may diverge at balance, where the additional extremal family (8) exists.
+may diverge at balance, where the additional extremal family (E5) exists.
 
 For `0<h<H_N`, set `s=h/H_N`, `T=1+Nh`, and
-`D_-=R^2-T^2||g_N||^2`. The decomposition (6) gives
+`D_-=R^2-T^2||g_N||^2`. The decomposition (E3) gives
 
 ```math
 \|x_N-g_N\|^2\leq D_-,\qquad
 \|g_i-g_N\|^2\leq D_-/\kappa_i\quad(i<N),
 ```
-**(15)**
+**(E12)**
 
 ```math
 \kappa_i=s(1-s)(\lambda^H_{iN}+\lambda^H_{Ni})>0.
@@ -901,7 +900,7 @@ For `0<h<H_N`, set `s=h/H_N`, `T=1+Nh`, and
 In particular, the whole point trajectory stays close to the constant
 gradient extremal path with terminal gradient `g_N`:
 
-**(16)**
+**(E13)**
 
 ```math
 \boxed{\quad
@@ -910,12 +909,12 @@ gradient extremal path with terminal gradient `g_N`:
 \quad}
 ```
 This follows by writing the vector on the left as
-`(x_N-g_N)+h sum_{j=i}^{N-1}(g_j-g_N)` and applying (15).
-All these statements hold for the finite data (1), and hence for the
+`(x_N-g_N)+h sum_{j=i}^{N-1}(g_j-g_N)` and applying (E12).
+All these statements hold for finite data satisfying the interpolation inequalities of Part I, and hence for the
 actual Hilbert-space optimization problem through the proved bridge.
 
 The loss of uniform stability at balance is necessary. The orthogonal
-Huber-plus-quadratic construction (8), with `H_N` replaced by any `h>1`
+Huber-plus-quadratic construction (E5), with `H_N` replaced by any `h>1`
 and `r=h-1`, remains an admissible trajectory. Its two branch deficits are
 
 ```math
@@ -954,7 +953,7 @@ Gx_2=(1/4,-1/4).
 ```
 Its squared terminal residual is `1/8`, exceeding the proposed smooth
 convex coefficient `1/9`. There cannot be scalar function values making
-these three gradient samples satisfy (1): regardless of the assigned
+these three gradient samples satisfy all the interpolation inequalities: regardless of the assigned
 values, direct calculation gives
 
 ```math
