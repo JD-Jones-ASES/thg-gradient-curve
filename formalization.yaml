@@ -1,0 +1,73 @@
+version: v0.4
+project:
+  name: Sharp last-iterate bounds and extremal trajectories for constant-step gradient descent
+  description: >-
+    Exact final-gradient bounds for convex functions with Lipschitz gradient on
+    real Hilbert spaces, under an initial-distance bound, for every horizon and
+    nonnegative constant step. The factor is the maximum of reciprocal linear
+    progress and the quadratic oscillation power, with genuine smooth convex
+    attaining examples. The formalization includes the joint progress potential,
+    complete sampled equality trajectories in both strict branches and at
+    balance, and a direct transfer from actual constrained proximal minimizers
+    to sharp residual and terminal objective-residual bounds. All ten principal
+    declarations are listed in comparator.json; VERIFICATION.md records checks.
+  authors: [JD Jones]
+  responsible_maintainers: [JD Jones]
+  license: MIT
+classification:
+  arxiv: [math.OC]
+  msc2020: [90C25, 90C30, 49M37]
+sources:
+  - title: Sharp smooth-convex final-gradient curve and structural extensions
+    type: other
+    authors: [JD Jones]
+    relationship: formalizes
+    url: https://github.com/JD-Jones-ASES/Analytic-Lab/tree/c6256b8dab3fe01fbeeeceef4b4d2c701dffeb2f/research/thg_gradient
+    notes: >-
+      The pinned Analytic-Lab precursor supplies the written general proof and
+      the equality and proximal extensions. Proof.md consolidates that account.
+      Its internal audits and exact finite replays are not Lean proof inputs.
+  - title: Last-Iterate Performance of Gradient Descent and Relaxed Proximal Point via s-Composability
+    type: paper
+    authors: [Salah R. Chikhi]
+    relationship: adapts
+    url: https://arxiv.org/html/2609.13765v1
+    notes: >-
+      Section 4 supplies the factorized multiplier shape and balancing-step
+      starting point. The uniform divergence construction, root comparison,
+      retained-surplus scaling, equality and direct proximal arguments are
+      developed in the precursor and reconstructed here.
+  - title: Smooth Strongly Convex Interpolation and Exact Worst-case Performance of First-order Methods
+    type: paper
+    authors: [Adrien B. Taylor, Julien M. Hendrickx, François Glineur]
+    relationship: background
+    url: https://arxiv.org/abs/1502.05666
+    notes: >-
+      Conjecture 3, smooth-convex specialization, final gradient under an
+      initial-distance bound. The Huber and quadratic sharp examples are
+      credited to this source. Positive strong convexity is outside this result.
+automation:
+  methods:
+    - method: agent
+      tool_setup: OpenAI Codex with GPT-6 Astra and collaborating agents
+      notes: >-
+        Agents developed and internally audited the written mathematics,
+        implemented the Lean proofs, and prepared documentation and checks.
+        Kernel-checkable tactic proofs use no external numerical oracle,
+        custom axiom or unsafe evaluator.
+review:
+  status: agent-reviewed
+  notes: >-
+    Internal mathematical audits in the pinned precursor checked all-horizon
+    quantifiers, certificate signs and equality/proximal scope. The principal Lean statements and analytic transfers were independently
+    reviewed by collaborating agents. No independent human specialist review or worldwide
+    priority determination is claimed.
+fidelity:
+  notes: >-
+    The principal statements require actual convexity, gradients, Lipschitz
+    estimates, minimizers and the literal recurrence, without assumed
+    certificate feasibility. The main curve includes zero horizons, zero
+    initial distance and every nonnegative step, including growth for h > 2.
+    Equality concerns trajectories and sampled values. Strict-branch stability
+    and general extended-real proximal existence are written supplements outside
+    the first proposed compared contract. The repository remains private.

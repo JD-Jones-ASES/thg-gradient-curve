@@ -1,0 +1,21 @@
+{
+  "challenge_module": "THGGradientChallenge",
+  "solution_module": "THGGradientSolution",
+  "theorem_names": [
+    "THGGradient.last_gradient_bound",
+    "THGGradient.scalar_attainment",
+    "THGGradient.progress_joint_bound",
+    "THGGradient.progress_equality",
+    "THGGradient.oscillation_equality",
+    "THGGradient.balance_equality",
+    "THGGradient.proximal_residual_bound",
+    "THGGradient.proximal_residual_attainment",
+    "THGGradient.proximal_progress_tradeoff",
+    "THGGradient.proximal_objective_attainment"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}
