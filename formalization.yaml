@@ -22,8 +22,8 @@ sources:
     type: paper
     authors: [Salah R. Chikhi]
     relationship: adapts
-    url: https://arxiv.org/html/2609.13765v1
-    notes: >-
+    id: https://arxiv.org/html/2609.13765v1
+    note: >-
       Section 4 supplies the factorized multiplier shape and balancing-step
       starting point. The uniform divergence construction, root comparison,
       retained-surplus scaling, equality and direct proximal arguments are
@@ -32,8 +32,8 @@ sources:
     type: paper
     authors: [Adrien B. Taylor, Julien M. Hendrickx, François Glineur]
     relationship: formalizes
-    url: https://arxiv.org/abs/1502.05666
-    notes: >-
+    id: https://arxiv.org/abs/1502.05666
+    note: >-
       Conjecture 3, smooth-convex specialization, final gradient under an
       initial-distance bound. The Huber and quadratic sharp examples are
       credited to this source. Positive strong convexity is outside this result.
@@ -56,7 +56,7 @@ review:
     formal statements with their exposition. No independent human specialist
     review is claimed. See Disclosure.md and VERIFICATION.md.
 fidelity:
-  notes: >-
+  divergences: >-
     The principal statements require actual convexity, gradients, Lipschitz
     estimates, minimizers and the literal recurrence, without assumed
     certificate feasibility. The main curve includes zero horizons, zero
